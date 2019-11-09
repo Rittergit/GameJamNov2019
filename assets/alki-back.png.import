@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/alki-back.png-099940399251e26e281bfeee22c04145.stex"
+path="res://.import/alki-back.png-9c186664e86d23ced0e71d6574cc36ae.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/alki-back.png"
-dest_files=[ "res://.import/alki-back.png-099940399251e26e281bfeee22c04145.stex" ]
+source_file="res://assets/alki-back.png"
+dest_files=[ "res://.import/alki-back.png-9c186664e86d23ced0e71d6574cc36ae.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/holz.png-28573d5a12a11ca94052e12223eec2fb.stex"
+path="res://.import/holz.png-580396af5bc3f0bac3727fc9da699faa.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/holz.png"
-dest_files=[ "res://.import/holz.png-28573d5a12a11ca94052e12223eec2fb.stex" ]
+source_file="res://assets/holz.png"
+dest_files=[ "res://.import/holz.png-580396af5bc3f0bac3727fc9da699faa.stex" ]
 
 [params]
 

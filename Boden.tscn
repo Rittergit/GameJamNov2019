@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Assets/gras.png" type="Texture" id=1]
+
+[node name="Boden" type="Node2D"]
+editor/display_folded = true
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="gras" type="Sprite" parent="."]
+position = Vector2( 44.9227, 80.0709 )
+scale = Vector2( 0.499141, 0.500443 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 180, 320 )
