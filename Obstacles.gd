@@ -14,7 +14,6 @@ func _process(delta):
 	if global_timer == 0:
 		var moving_obstacles = get_moving_obstacles(obstacles_node_children)
 		for obstacle in moving_obstacles:
-			print(obstacle.position.y)
 			obstacle.position.y += 10
 	
 func get_moving_obstacles(obstacles):
