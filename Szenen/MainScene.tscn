@@ -7,8 +7,9 @@
 [node name="MainNode" type="Node2D"]
 
 [node name="UndergroundNode" parent="." instance=ExtResource( 1 )]
+z_index = -1
 
 [node name="PlayerNode" parent="." instance=ExtResource( 2 )]
-position = Vector2( 56, 212 )
+position = Vector2( 56, 128 )
 
 [node name="SpawnRow" parent="." instance=ExtResource( 3 )]
