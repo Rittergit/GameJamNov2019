@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/holz.png-580396af5bc3f0bac3727fc9da699faa.stex"
+path="res://.import/farn.png-be985c776f61eb8fe2d228dff3e41ad8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/holz.png"
-dest_files=[ "res://.import/holz.png-580396af5bc3f0bac3727fc9da699faa.stex" ]
+source_file="res://Assets/Sprites/farn.png"
+dest_files=[ "res://.import/farn.png-be985c776f61eb8fe2d228dff3e41ad8.stex" ]
 
 [params]
 

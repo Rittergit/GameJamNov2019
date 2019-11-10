@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/wasser.png-8ff311aa595f1ba4ddaf070dbc650245.stex"
+path="res://.import/Bottle.png-21e303e1bc333164caf68c8f8a72b82d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/wasser.png"
-dest_files=[ "res://.import/wasser.png-8ff311aa595f1ba4ddaf070dbc650245.stex" ]
+source_file="res://Assets/Sprites/Bottle.png"
+dest_files=[ "res://.import/Bottle.png-21e303e1bc333164caf68c8f8a72b82d.stex" ]
 
 [params]
 

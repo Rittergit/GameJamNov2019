@@ -16,15 +16,15 @@ _global_script_class_icons={
 [application]
 
 config/name="GameJamNov2019"
-run/main_scene="res://Level.tscn"
+run/main_scene="res://PlayerScript.tscn"
 config/icon="res://icon.png"
 
 [display]
 
-window/size/width=90
-window/size/height=160
-window/size/test_width=450
-window/size/test_height=800
+window/size/width=128
+window/size/height=228
+window/size/test_width=384
+window/size/test_height=684
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
 

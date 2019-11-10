@@ -1,14 +1,12 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://World.gd" type="Script" id=1]
-[ext_resource path="res://Assets/gras.png" type="Texture" id=2]
-[ext_resource path="res://Player.gd" type="Script" id=3]
-[ext_resource path="res://Assets/alki-back.png" type="Texture" id=4]
-[ext_resource path="res://AnimationPlayer.gd" type="Script" id=5]
-[ext_resource path="res://Control.gd" type="Script" id=6]
-[ext_resource path="res://PointSprite.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Obstacles.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Holzboden.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scripts/World.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Sprites/gras.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/Player.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Sprites/alki-back.png" type="Texture" id=4]
+[ext_resource path="res://PointSprite.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Obstacles.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Holzboden.tscn" type="PackedScene" id=7]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 8.43494
@@ -71,21 +69,19 @@ shape = SubResource( 1 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
 autoplay = "Walk"
 anims/Walk = SubResource( 2 )
-script = ExtResource( 5 )
 
 [node name="Control" type="Control" parent="."]
 show_behind_parent = true
 margin_left = 1.0
 margin_right = 180.0
 margin_bottom = 321.0
-script = ExtResource( 6 )
 
-[node name="StaticBody2D" parent="." instance=ExtResource( 7 )]
+[node name="StaticBody2D" parent="." instance=ExtResource( 5 )]
 
-[node name="Obstacles" parent="." instance=ExtResource( 8 )]
+[node name="Obstacles" parent="." instance=ExtResource( 6 )]
 scale = Vector2( 0.50313, 0.52 )
 
-[node name="Node2D" parent="." instance=ExtResource( 9 )]
+[node name="Node2D" parent="." instance=ExtResource( 7 )]
 position = Vector2( 7.77029, 26.0032 )
 
 [node name="Border" type="Node2D" parent="."]
