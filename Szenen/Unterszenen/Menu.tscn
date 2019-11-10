@@ -1,11 +1,10 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Assets/Sprites/Menu/BackgroundMenu.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Sprites/alki-front.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Sprites/farn.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Sprites/tree_fix_end.png" type="Texture" id=4]
-[ext_resource path="res://Assets/Sprites/tree_fix.png" type="Texture" id=5]
-[ext_resource path="res://Assets/Sprites/Menu/Title.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Sprites/Menu/Title.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Sprites/Menu/BackgroundPallet2.png" type="Texture" id=5]
 
 [sub_resource type="Animation" id=1]
 resource_name = "IDLE"
@@ -195,31 +194,13 @@ texture = ExtResource( 3 )
 hframes = 12
 frame = 11
 
-[node name="Node2D" type="Node2D" parent="."]
-position = Vector2( 32, 28 )
-scale = Vector2( 0.7, 0.9 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="tree_fix_end" type="Sprite" parent="Node2D"]
-scale = Vector2( 3.19686, 2.9094 )
-texture = ExtResource( 4 )
-hframes = 8
-
-[node name="tree_fix_end2" type="Sprite" parent="Node2D"]
-position = Vector2( 100, 0 )
-rotation = 3.14159
-scale = Vector2( 3.19686, 2.9094 )
-texture = ExtResource( 4 )
-hframes = 8
-
-[node name="tree_fix" type="Sprite" parent="Node2D"]
-position = Vector2( 50, 0 )
-scale = Vector2( 3.19686, 2.9094 )
-texture = ExtResource( 5 )
-hframes = 8
-
 [node name="Title" type="Sprite" parent="."]
-position = Vector2( 65.5562, 27.1992 )
-texture = ExtResource( 6 )
+modulate = Color( 0.764706, 0.764706, 0.764706, 1 )
+position = Vector2( 64.6118, 41.9274 )
+texture = ExtResource( 4 )
+
+[node name="BackgroundPallet2" type="Sprite" parent="."]
+position = Vector2( 64.9612, 42.7501 )
+scale = Vector2( 3, 4 )
+z_index = -1
+texture = ExtResource( 5 )

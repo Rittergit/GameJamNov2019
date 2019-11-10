@@ -52,3 +52,10 @@ editor/display_folded = true
 position = Vector2( 120, 8 )
 
 [node name="Spawn1" parent="SB8" instance=ExtResource( 2 )]
+
+[node name="SB9" type="Node2D" parent="."]
+editor/display_folded = true
+visible = false
+position = Vector2( 170, -10 )
+
+[node name="Spawn1" parent="SB9" instance=ExtResource( 2 )]
