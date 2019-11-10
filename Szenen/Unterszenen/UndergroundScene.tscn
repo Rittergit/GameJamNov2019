@@ -6,7 +6,6 @@
 [node name="UndergroundNode" type="Node2D"]
 
 [node name="Row" type="Node2D" parent="."]
-editor/display_folded = true
 position = Vector2( 8, 8 )
 
 [node name="LightGrass" parent="Row" instance=ExtResource( 1 )]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Sprites/alki-back.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Sprites/playerShadow.png" type="Texture" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 8.43494
@@ -46,3 +47,10 @@ shape = SubResource( 1 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
 autoplay = "Walk"
 anims/Walk = SubResource( 2 )
+
+[node name="Shadow" type="Sprite" parent="Player"]
+modulate = Color( 0.223529, 0.12549, 0.12549, 0.196078 )
+position = Vector2( 0, 2 )
+scale = Vector2( 0.8, 0.8 )
+z_index = -1
+texture = ExtResource( 3 )
