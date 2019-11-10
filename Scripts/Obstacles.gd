@@ -2,41 +2,50 @@ extends Node
 
 var object_to_spawn = preload("res://Szenen/Unterszenen/ObstacleObject.tscn")
 
-var obstacles_node_children = []
-var global_timer = 0
-var moving_obstacles_arr = []
+var spawn_timer
+var move_timer
+var spawnSpeed = 1
+var moveSpeed = 2
+var spawns = []
+var objects = []
+var missingBlocks = 3
+var randomGenerator = RandomNumberGenerator.new()
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	obstacles_node_children = get_children()
-	pass # Replace with function body.
+	randomize()
+	spawn_timer = Timer.new()
+	move_timer = Timer.new()
+	spawn_timer.connect("timeout", self, "spawnObjects")
+	move_timer.connect("timeout", self, "moveObjects")
+	spawns = get_children()
+	spawn_timer.set_wait_time(float(1) / float(spawnSpeed))
+	move_timer.set_wait_time(float(1) / float(moveSpeed))
+	spawn_timer.start()
+	move_timer.start()
+	add_child(spawn_timer)
+	add_child(move_timer)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	global_timer = (global_timer+1)%60 
-	if global_timer == 0:
-		var moving_obstacles = get_moving_obstacles(obstacles_node_children)
-		moving_obstacles_arr.append(moving_obstacles)
-		for obstacles in moving_obstacles_arr:
-			for obstacle in obstacles:
-				if obstacle == $_NULL:
-					continue
-				obstacle.position.y += 10
-				print(obstacle, obstacle.position.y)
-	
-func get_moving_obstacles(obstacles):
-	var deltion_num = randi()%obstacles_node_children.size()
-	var deltion_nums = [deltion_num, deltion_num + 1]
-	var to_sent_obstacles = []	
-	
-	if obstacles.size() <= 0:
-		return
-	for idx in range(obstacles.size()):
-		if not deltion_nums.has(idx):
-			var obst = object_to_spawn.instance()
-			obst.position = obstacles[idx].position
-			to_sent_obstacles.append(obst)
-		else:
-			to_sent_obstacles.append($_NULL)
-	return to_sent_obstacles
+	pass
 
+func spawnObjects():
+	var startMissingNum = randomGenerator.randi_range(0, spawns.size() - 1)
+	var missingCount = randomGenerator.randi_range(0, missingBlocks)
+	var missingBlocks = []
+	for idx in range(missingCount - 1):
+		idx += 1
+		if startMissingNum + idx == spawns.size() - 1:
+			missingBlocks.append(startMissingNum - idx)
+		else:
+			missingBlocks.append(startMissingNum + idx)
+	for spawnIdx in range(spawns.size()):
+		if spawnIdx in missingBlocks:
+			continue
+		var obj = object_to_spawn.instance()
+		obj.position = spawns[spawnIdx].position
+		objects.append(obj)
+		add_child(obj)
+		
+func moveObjects():
+	for obj in objects:
+		obj.position.y += 16
