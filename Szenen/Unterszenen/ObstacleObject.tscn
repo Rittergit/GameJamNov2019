@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Assets/Sprites/tree_fix.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Sprites/SchattenHolz.png" type="Texture" id=2]
 
 [sub_resource type="GDScript" id=3]
 script/source = "extends StaticBody2D
@@ -48,8 +49,15 @@ shape = SubResource( 1 )
 editor/display_folded = true
 texture = ExtResource( 1 )
 hframes = 8
-frame = 1
+frame = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
 autoplay = "WoodRoll"
 anims/WoodRoll = SubResource( 2 )
+
+[node name="Schatten" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.196078 )
+position = Vector2( 0, 6 )
+scale = Vector2( 1, 0.182259 )
+z_index = -1
+texture = ExtResource( 2 )
