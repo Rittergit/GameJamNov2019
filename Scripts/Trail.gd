@@ -19,6 +19,8 @@ func _process(delta):
 	if get_point_count() >= trailLength:
 		remove_point(0)
 	if Input.is_action_pressed('leftbutton'):
+		if Global.slice <= 0:
+			return
 		var obj = mouseObjectPacked.instance()
 		obj.position = point
 		add_child(obj)

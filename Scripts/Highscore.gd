@@ -1,7 +1,7 @@
-extends Node2D
+extends Label
 
 func _ready():
-	get_child(0).text = str(Global.highscore)
+	text = str(Global.highscore) + "‰"
 	
 func _process(delta):
-	get_child(0).text = str(Global.highscore)
+	text = str(Global.highscore) + "‰"

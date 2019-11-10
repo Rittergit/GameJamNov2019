@@ -1,6 +1,8 @@
 extends Node
 
 var object_to_spawn = preload("res://Szenen/Unterszenen/ObstacleObject.tscn")
+var object1_to_spawn = preload("res://Szenen/Unterszenen/Obstacle2.tscn")
+var object2_to_spawn = preload("res://Szenen/Unterszenen/Obstacle3.tscn")
 var displayHeight = ProjectSettings.get("display/window/size/height")
 
 var spawn_timer
@@ -13,7 +15,7 @@ var missingBlocks = 3
 var randomGenerator = RandomNumberGenerator.new()
 
 func _ready():
-	randomize()
+	randomGenerator.randomize()
 	spawn_timer = Timer.new()
 	move_timer = Timer.new()
 	spawn_timer.connect("timeout", self, "spawnObjects")
@@ -42,7 +44,13 @@ func spawnObjects():
 	for spawnIdx in range(spawns.size()):
 		if spawnIdx in missingBlocks:
 			continue
-		var obj = object_to_spawn.instance()
+		var obj
+		if spawnIdx == 0:
+			obj = object1_to_spawn.instance()
+		elif spawnIdx == 7:
+			obj =  object2_to_spawn.instance()
+		else:
+			obj = object_to_spawn.instance()
 		obj.position = spawns[spawnIdx].position
 		objects.append(weakref(obj))
 		add_child(obj)

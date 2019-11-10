@@ -2,9 +2,9 @@ extends Area2D
 
 func _ready():
 	connect("body_entered", self, "collect")
-	pass # Replace with function body.
+	pass
 
 func collect(object):
 	if object.name == 'Player':
-		Global.highscore += 1
+		Global.highscore += 0.1
 		self.visible = false

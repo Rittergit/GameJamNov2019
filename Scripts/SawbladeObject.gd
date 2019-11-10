@@ -6,5 +6,5 @@ func _ready():
 
 func collect(object):
 	if object.name == 'Player':
-		#Global.highscore += 1
+		Global.slice += 10
 		self.visible = false

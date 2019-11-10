@@ -14,6 +14,7 @@ func _ready():
 func collided(object):
 	if object.collision_layer == 2:
 		object.queue_free()
+		Global.slice -= 1
 	queue_free()
 	
 func dest():
