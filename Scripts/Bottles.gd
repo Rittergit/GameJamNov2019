@@ -44,7 +44,6 @@ func createBottle():
 	bottle.position = pos
 	bottles.append(bottle)
 	add_child(bottle)
-	print("bottles: ", bottles.size())
 	spawnTimer.set_wait_time(rng.randi_range(1, 10))
 	
 func moveBottles():
