@@ -197,6 +197,7 @@ frame = 11
 [node name="Title" type="Sprite" parent="."]
 modulate = Color( 0.764706, 0.764706, 0.764706, 1 )
 position = Vector2( 64.6118, 41.9274 )
+scale = Vector2( 2, 2 )
 texture = ExtResource( 4 )
 
 [node name="BackgroundPallet2" type="Sprite" parent="."]
