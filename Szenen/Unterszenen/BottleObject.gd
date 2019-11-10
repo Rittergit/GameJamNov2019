@@ -6,5 +6,5 @@ func _ready():
 
 func collect(object):
 	if object.name == 'Player':
-		print("Bottle collected!")
+		Global.highscore += 1
 		self.visible = false

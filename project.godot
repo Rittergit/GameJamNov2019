@@ -18,6 +18,10 @@ _global_script_class_icons={
 config/name="GameJamNov2019"
 run/main_scene="res://Szenen/Unterszenen/Menu.tscn"
 
+[autoload]
+
+Global="*res://Scripts/Global.gd"
+
 [display]
 
 window/size/width=128

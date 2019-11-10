@@ -9,7 +9,7 @@ func _ready():
 	collisionTimer.set_wait_time(float(0.1))
 	collisionTimer.start()
 	add_child(collisionTimer)
-	connect("body_entered", self, "collided")
+	connect("area_entered", self, "collided")
 	
 func collided(object):
 	if object.collision_layer == 2:

@@ -4,6 +4,5 @@
 font_path = "res://Fonts/Roboto/Roboto-Regular.ttf"
 
 [resource]
-size = 22
 outline_color = Color( 0, 0, 0, 1 )
 font_data = SubResource( 1 )

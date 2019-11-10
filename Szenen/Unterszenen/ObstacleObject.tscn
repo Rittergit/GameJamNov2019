@@ -4,19 +4,14 @@
 [ext_resource path="res://Assets/Sprites/SchattenHolz.png" type="Texture" id=2]
 
 [sub_resource type="GDScript" id=1]
-script/source = "extends StaticBody2D
+script/source = "extends Node
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = \"text\"
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-    pass # Replace with function body.
+	connect(\"body_entered\", self, \"collided\")
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-    pass
+func collided(object):
+	if object.name == \"Player\":
+		get_tree().change_scene(\"res://Szenen/Unterszenen/Menu.tscn\")
 "
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -38,7 +33,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
 }
 
-[node name="ObstacleObject" type="StaticBody2D"]
+[node name="ObstacleObject" type="Area2D"]
 collision_layer = 2
 script = SubResource( 1 )
 
