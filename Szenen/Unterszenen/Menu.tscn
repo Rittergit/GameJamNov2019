@@ -180,6 +180,7 @@ hframes = 12
 frame = 11
 
 [node name="Farn6" type="Node2D" parent="."]
+editor/display_folded = true
 position = Vector2( 39.9559, 202.77 )
 rotation = 3.14159
 z_index = -2
