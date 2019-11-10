@@ -3,15 +3,15 @@ extends Node
 var rng = RandomNumberGenerator.new()
 var moveTimer
 var spawnTimer
-var bottlePacked = preload("res://Szenen/Unterszenen/BottleObject.tscn")
+var sawbladePacked = preload("res://Szenen/Unterszenen/SawbladeObject.tscn")
 
-var bottles = []
+var sawblades = []
 var numberOfColumns = 8
 var speed = 3
 var minDist = 1
 var maxDist = 10
 
-# Distance in rows between two bottles
+# Distance in rows between two sawblades
 var displayHeight = ProjectSettings.get("display/window/size/height")
 
 
@@ -20,13 +20,13 @@ func _ready():
 	rng.randomize()
 
 	moveTimer = Timer.new()
-	moveTimer.connect("timeout", self, "moveBottles")
+	moveTimer.connect("timeout", self, "moveSawblades")
 	moveTimer.set_wait_time(float(1) / (float(16) * float(speed)))
 	moveTimer.start()
 	add_child(moveTimer)
 	
 	spawnTimer = Timer.new()
-	spawnTimer.connect("timeout", self, "createBottle")
+	spawnTimer.connect("timeout", self, "createSawblade")
 	spawnTimer.set_wait_time(rng.randi_range(minDist, maxDist))
 	spawnTimer.start()
 	add_child(spawnTimer)
@@ -34,28 +34,36 @@ func _ready():
 func _process(delta):
 	pass
 	
-# Create bottle and add to array	
-func createBottle():
-	var bottle = bottlePacked.instance()
+# Create sawblade and add to array	
+func createSawblade():
+	var sawblade = sawbladePacked.instance()
 	var pos = Vector2(getRandomXPos(), 0)
-	bottle.position = pos
-	bottles.append(bottle)
-	add_child(bottle)
+	sawblade.position = pos
+	sawblades.append(sawblade)
+	add_child(sawblade)
 	spawnTimer.set_wait_time(rng.randi_range(minDist, maxDist))
 	
-func moveBottles():
+func moveSawblades():
 	var objectsToRemove = []
-	for bottleIndex in range(bottles.size()):
-		var bottle = bottles[bottleIndex]
-		bottle.position.y += 1
-		if bottle.position.y > displayHeight:
-			objectsToRemove.append(bottleIndex)
-			bottle.queue_free()
+	for sawbladeIndex in range(sawblades.size()):
+		var sawblade = sawblades[sawbladeIndex]
+		sawblade.position.y += 1
+		if sawblade.position.y > displayHeight:
+			objectsToRemove.append(sawbladeIndex)
+			sawblade.queue_free()
 	objectsToRemove.invert()
-	for bottleIndex in objectsToRemove:
-		bottles.remove(bottleIndex)
+	for sawbladeIndex in objectsToRemove:
+		sawblades.remove(sawbladeIndex)
 	
 func getRandomXPos():
 	var randomPos = rng.randi_range(0, numberOfColumns - 1)
 	return randomPos*16
+
+
+
+
+
+
+
+
 
