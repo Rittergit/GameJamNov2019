@@ -11,7 +11,6 @@ radius = 8.43494
 resource_name = "Walk"
 length = 0.6
 loop = true
-step = 1.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("PlayerSpriteSprite:frame")
 tracks/0/interp = 1
@@ -21,7 +20,7 @@ tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 0,
+"update": 1,
 "values": [ 0, 1, 2, 3, 4, 5 ]
 }
 
@@ -36,7 +35,7 @@ __meta__ = {
 [node name="PlayerSpriteSprite" type="Sprite" parent="Player"]
 texture = ExtResource( 2 )
 hframes = 6
-frame = 2
+frame = 3
 __meta__ = {
 "_edit_group_": true
 }
@@ -46,6 +45,7 @@ shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
 autoplay = "Walk"
+playback_speed = 0.4
 anims/Walk = SubResource( 2 )
 
 [node name="Shadow" type="Sprite" parent="Player"]
