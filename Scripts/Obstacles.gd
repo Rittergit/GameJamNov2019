@@ -48,9 +48,15 @@ func spawnObjects():
 		add_child(obj)
 		
 func moveObjects():
-	for obj in objects:
-		var objRef = obj.get_ref()
+	var objectsToRemove = []
+	for objIndex in range(objects.size()):
+		var objRef = objects[objIndex].get_ref()
 		objRef.position.y += 1
 		if objRef.position.y > displayHeight:
-			objects.remove(objects.find(obj))
 			objRef.queue_free()
+			objectsToRemove.append(objIndex)
+	objectsToRemove.invert()
+	for objIndex in objectsToRemove:
+		objects.remove(objIndex)
+		
+		
