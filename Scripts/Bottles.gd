@@ -7,30 +7,27 @@ var bottlePacked = preload("res://Szenen/Unterszenen/BottleObject.tscn")
 
 var bottles = []
 var numberOfColumns = 8
-var speed = 0.1
+var speed = 3
 var minDist = 1
 var maxDist = 10
 
 # Distance in rows between two bottles
 var displayHeight = ProjectSettings.get("display/window/size/height")
-var randomDistance
-var currentRow
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
-	currentRow = 0
-	randomDistance = rng.randi_range(minDist, maxDist)
+
 	moveTimer = Timer.new()
 	moveTimer.connect("timeout", self, "moveBottles")
-	moveTimer.set_wait_time(float(1) / (float(16) * float(3)))
+	moveTimer.set_wait_time(float(1) / (float(16) * float(speed)))
 	moveTimer.start()
 	add_child(moveTimer)
 	
 	spawnTimer = Timer.new()
 	spawnTimer.connect("timeout", self, "createBottle")
-	spawnTimer.set_wait_time(rng.randi_range(1, 10))
+	spawnTimer.set_wait_time(rng.randi_range(minDist, maxDist))
 	spawnTimer.start()
 	add_child(spawnTimer)
 	
@@ -44,7 +41,7 @@ func createBottle():
 	bottle.position = pos
 	bottles.append(bottle)
 	add_child(bottle)
-	spawnTimer.set_wait_time(rng.randi_range(1, 10))
+	spawnTimer.set_wait_time(rng.randi_range(minDist, maxDist))
 	
 func moveBottles():
 	var objectsToRemove = []
