@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Szenen/Unterszenen/UndergroundScene.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Szenen/Unterszenen/PlayerScene.tscn" type="PackedScene" id=2]
@@ -6,11 +6,13 @@
 [ext_resource path="res://Szenen/Unterszenen/Trail.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Szenen/Unterszenen/Bottles.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Szenen/Unterszenen/Highscore.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Szenen/Unterszenen/Bewohner.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Szenen/Unterszenen/Stadt.tscn" type="PackedScene" id=8]
 
 [node name="MainNode" type="Node2D"]
 
 [node name="UndergroundNode" parent="." instance=ExtResource( 1 )]
-z_index = -1
+z_index = -2
 
 [node name="PlayerNode" parent="." instance=ExtResource( 2 )]
 position = Vector2( 56, 128 )
@@ -22,3 +24,21 @@ position = Vector2( 56, 128 )
 [node name="Bottles" parent="." instance=ExtResource( 5 )]
 
 [node name="Highscore" parent="." instance=ExtResource( 6 )]
+
+[node name="BewohnerGroup" type="Node2D" parent="."]
+editor/display_folded = true
+
+[node name="Bewohner" parent="BewohnerGroup" instance=ExtResource( 7 )]
+position = Vector2( 8, 9 )
+
+[node name="Bewohner2" parent="BewohnerGroup" instance=ExtResource( 7 )]
+position = Vector2( 40, 9 )
+
+[node name="Bewohner3" parent="BewohnerGroup" instance=ExtResource( 7 )]
+position = Vector2( 72, 9 )
+
+[node name="Bewohner4" parent="BewohnerGroup" instance=ExtResource( 7 )]
+position = Vector2( 104, 9 )
+
+[node name="Stadt" parent="." instance=ExtResource( 8 )]
+z_index = -2
