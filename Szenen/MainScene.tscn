@@ -1,19 +1,11 @@
-<<<<<<< HEAD
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Szenen/MainScene.gd" type="Script" id=1]
 [ext_resource path="res://Szenen/Unterszenen/UndergroundScene.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Szenen/Unterszenen/PlayerScene.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Szenen/Unterszenen/Obstacles.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Szenen/Unterszenen/Trail.tscn" type="PackedScene" id=5]
-=======
-[gd_scene load_steps=5 format=2]
-
-[ext_resource path="res://Szenen/Unterszenen/UndergroundScene.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Szenen/Unterszenen/PlayerScene.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Szenen/Unterszenen/Obstacles.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Szenen/Unterszenen/Bottles.tscn" type="PackedScene" id=4]
->>>>>>> 7a8cde4130db8d54cadb036a610779d3740e37fd
+[ext_resource path="res://Szenen/Unterszenen/Bottles.tscn" type="PackedScene" id=6]
 
 [node name="MainNode" type="Node2D"]
 script = ExtResource( 1 )
@@ -25,13 +17,8 @@ z_index = -1
 [node name="PlayerNode" parent="." instance=ExtResource( 3 )]
 position = Vector2( 56, 128 )
 
-<<<<<<< HEAD
 [node name="SpawnRow" parent="." instance=ExtResource( 4 )]
 
 [node name="TrailNode" parent="." instance=ExtResource( 5 )]
-=======
-[node name="SpawnRow" parent="." instance=ExtResource( 3 )]
-position = Vector2( 0, 16 )
 
-[node name="Bottles" parent="." instance=ExtResource( 4 )]
->>>>>>> 7a8cde4130db8d54cadb036a610779d3740e37fd
+[node name="Bottles" parent="." instance=ExtResource( 6 )]
