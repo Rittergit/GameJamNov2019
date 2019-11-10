@@ -1,11 +1,12 @@
 extends Node
 
 var object_to_spawn = preload("res://Szenen/Unterszenen/ObstacleObject.tscn")
+var displayHeight = ProjectSettings.get("display/window/size/height")
 
 var spawn_timer
 var move_timer
 var spawnSpeed = 1
-var moveSpeed = 2
+var moveSpeed = 3
 var spawns = []
 var objects = []
 var missingBlocks = 3
@@ -19,7 +20,7 @@ func _ready():
 	move_timer.connect("timeout", self, "moveObjects")
 	spawns = get_children()
 	spawn_timer.set_wait_time(float(1) / float(spawnSpeed))
-	move_timer.set_wait_time(float(1) / float(moveSpeed))
+	move_timer.set_wait_time(float(1) / (float(16) * float(moveSpeed)))
 	spawn_timer.start()
 	move_timer.start()
 	add_child(spawn_timer)
@@ -43,9 +44,19 @@ func spawnObjects():
 			continue
 		var obj = object_to_spawn.instance()
 		obj.position = spawns[spawnIdx].position
-		objects.append(obj)
+		objects.append(weakref(obj))
 		add_child(obj)
 		
 func moveObjects():
-	for obj in objects:
-		obj.position.y += 16
+	var objectsToRemove = []
+	for objIndex in range(objects.size()):
+		var objRef = objects[objIndex].get_ref()
+		objRef.position.y += 1
+		if objRef.position.y > displayHeight:
+			objRef.queue_free()
+			objectsToRemove.append(objIndex)
+	objectsToRemove.invert()
+	for objIndex in objectsToRemove:
+		objects.remove(objIndex)
+		
+		
