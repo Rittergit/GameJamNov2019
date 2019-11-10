@@ -50,7 +50,10 @@ func spawnObjects():
 func moveObjects():
 	var objectsToRemove = []
 	for objIndex in range(objects.size()):
-		var objRef = objects[objIndex].get_ref()
+		var obj = objects[objIndex]
+		if obj.get_ref() == null:
+			continue
+		var objRef = obj.get_ref()
 		objRef.position.y += 1
 		if objRef.position.y > displayHeight:
 			objRef.queue_free()
