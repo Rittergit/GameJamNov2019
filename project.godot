@@ -17,6 +17,7 @@ _global_script_class_icons={
 
 config/name="GameJamNov2019"
 run/main_scene="res://Szenen/Unterszenen/Menu.tscn"
+config/icon="res://icon.png"
 
 [display]
 
