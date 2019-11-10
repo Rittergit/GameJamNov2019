@@ -3,6 +3,7 @@
 [ext_resource path="res://Assets/Sprites/holz.png" type="Texture" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8.02741, 8.01595 )
 
 [node name="Spawn1" type="StaticBody2D"]
 
@@ -10,5 +11,4 @@
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 1.25, 1.25 )
 texture = ExtResource( 1 )

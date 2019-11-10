@@ -1,6 +1,6 @@
 extends Node
 
-var Spawn = preload("Spawn.tscn")
+var object_to_spawn = preload("res://Szenen/Unterszenen/ObstacleObject.tscn")
 
 var obstacles_node_children = []
 var global_timer = 0
@@ -25,7 +25,7 @@ func _process(delta):
 				print(obstacle, obstacle.position.y)
 	
 func get_moving_obstacles(obstacles):
-	var deltion_num = randi()%10
+	var deltion_num = randi()%obstacles_node_children.size()
 	var deltion_nums = [deltion_num, deltion_num + 1]
 	var to_sent_obstacles = []	
 	
@@ -33,9 +33,9 @@ func get_moving_obstacles(obstacles):
 		return
 	for idx in range(obstacles.size()):
 		if not deltion_nums.has(idx):
-			var obst = Spawn.instance()
+			var obst = object_to_spawn.instance()
 			obst.position = obstacles[idx].position
-			to_sent_obstacles.append(Spawn.instance())
+			to_sent_obstacles.append(obst)
 		else:
 			to_sent_obstacles.append($_NULL)
 	return to_sent_obstacles
